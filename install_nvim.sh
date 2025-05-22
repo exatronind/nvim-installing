@@ -2,6 +2,24 @@
 
 set -e
 
+#Adicionada a instalacao do Node
+echo "Baixando e instalando o NVM (Node Version Manager)..."
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+echo "Carregando NVM no shell atual..."
+export NVM_DIR="$HOME/.nvm"
+# shellcheck disable=SC1090
+. "$NVM_DIR/nvm.sh"
+
+echo "Instalando Node.js v22..."
+nvm install 22
+
+echo "Verificando versões instaladas:"
+echo -n "Node.js: "; node -v
+echo -n "NVM atual: "; nvm current
+echo -n "npm: "; npm -v
+#Fim da instalacao do Node
+
 DEB_FILE="nvim-linux-armv7l.deb"
 PACKAGE_NAME="nvim"
 
